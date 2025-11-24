@@ -1,0 +1,89 @@
+/* Общие стили */
+body {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+h1, h2, h3 {
+    color: #0d6efd;
+}
+
+/* Карточки */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    transition: transform 0.2s;
+}
+.card:hover {
+    transform: scale(1.02);
+}
+
+/* Бейджи с монетами */
+.coin-badge {
+    background-color: gold;
+    color: #000;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Кнопки */
+.btn-primary, .btn-success, .btn-warning {
+    font-weight: bold;
+}
+
+/* Адаптивные карточки для маленьких экранов */
+@media (max-width: 576px) {
+    .card .d-flex {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px;
+    }
+    .coin-badge {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Контейнеры */
+.container {
+    max-width: 1000px;
+    margin-top: 50px;
+}
+
+/* Формы */
+.form-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Кнопки форм */
+.btn-submit {
+    width: 100%;
+    font-weight: bold;
+}
+
+/* Адаптация навигации */
+.navbar-nav .nav-link {
+    margin-left: 10px;
+}
+
+/* Центрирование текста */
+.text-center {
+    text-align: center;
+}
+
+/* Общие отступы */
+.mt-3 { margin-top: 1rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 1.5rem; }

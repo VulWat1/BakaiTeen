@@ -14,3 +14,6 @@ class QuestConfig(AppConfig):
 
     def ready(self):
         import quest.signals  # import signals to activate them
+
+def ready(self):
+    import main.signals

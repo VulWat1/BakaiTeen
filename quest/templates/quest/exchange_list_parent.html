@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запросы на обмен монет</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .coin {
+            color: gold;
+            margin-right: 5px;
+        }
+        .card-request {
+            transition: transform 0.2s;
+        }
+        .card-request:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h2 class="mb-4">Запросы на обмен монет</h2>
+
+    {% if requests %}
+        <div class="row g-3">
+            {% for req in requests %}
+                <div class="col-md-4">
+                    <div class="card card-request p-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ req.child.username }}</h5>
+                            <p class="card-text">
+                                <span class="coin">💰</span>{{ req.amount }} монет
+                            </p>
+                            {% if not req.is_confirmed %}
+                                <a href="{% url 'confirm_exchange' req.id %}" class="btn btn-success w-100">Подтвердить</a>
+                            {% else %}
+                                <span class="badge bg-secondary">Подтверждено</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-muted">Нет запросов на обмен.</p>
+    {% endif %}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

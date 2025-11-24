@@ -16,8 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import handler404
+from quest.views import custom_404  # replace your_app with your app name
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('quest.urls')),
 ]
+
+handler404 = custom_404
